@@ -46,12 +46,7 @@ setMethod("biomda_branch", signature("obj" = "BioMDA"),
           pull(ssimcid)
         branch <- "the structurally similar metabolites branch"
       } else {
-        mod <- obj@metaboliteInfo$coabm_metabolites |>
-          filter(coabcid == obj@metaboliteInfo$cid) |>
-          pull(module)
-        cid <- obj@metaboliteInfo$coabm_metabolites |>
-          filter(module == mod) |>
-          pull(coabcid)
+        cid <- get_coab_metabolites(obj)
         branch <- "the co-abundant metabolites branch"
       }
       nw <- stitch_network(cid = cid, score = score)

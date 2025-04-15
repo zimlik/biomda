@@ -1,13 +1,3 @@
-## Set to 0 when the number of rows is null.
-#' @keywords internal
-nrow_null2zero <- function(x) {
-  n <- nrow(x)
-  if (is.null(n)) {
-    n <- 0
-  }
-  return(n)
-}
-
 ## Convert string id or entrez gene id to gene symbol for \code{enrichResult}.
 #' @keywords internal
 geneid2name <- function(enrichres, pnode, id = c("ENSP", "ENTREZID")) {
@@ -39,4 +29,22 @@ compound2md5sum <- function(compound) {
     unlist()
   compound2md5sum <- tibble(compound = compound, md5sum = md5sum)
   return(compound2md5sum)
+}
+
+## Get a set of co-abundant metabolites of query metabolite.
+#' @keywords internal
+get_coab_metabolites <- function(obj) {
+  metabolite <- obj@metabolite
+  coabres <- obj@metaboliteInfo$coab_metabolites
+  if (nrow(coabres) == 0) {
+    coabcid <- character(0)
+  } else {
+    mod <- coabres |>
+      filter(name == metabolite) |>
+      pull(module)
+    coabcid <- coabres |>
+      filter(module == mod) |>
+      pull(coabcid)
+  }
+  return(coabcid)
 }
