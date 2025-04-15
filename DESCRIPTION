@@ -1,0 +1,35 @@
+Package: biomda
+Title: A computational Framework for predictive Metabolite-Disease Association
+    mapping through Biomedical knowledge integration
+Version: 0.0.0.9000
+Authors@R: c(
+    person(given = "Li", family = "Zhan", email = "smu18575877413@gmail.com",
+           role = c("aut", "cre"), comment = c(ORCID = "0009-0003-7470-7586")),
+    person(given = "Guangchuang", family = "Yu", email = "guangchuangyu@gmail.com",
+           role = c("aut", "ctb"), comment = c(ORCID = "0000-0002-6485-8781")),
+    person(given = "Huimin", family = "Zheng", email = "zhenghuimin91@126.com",
+           role = c("aut", "ctb"), comment = c(ORCID = "0000-0003-3489-0964")))
+Description: The biomda package provides a systematic, data-driven approach to
+    infer potential metabolite-disease associations by leveraging heterogeneous
+    biomedical knowledge sources. This tool integrates multi-omics datasets,
+    curated pathway databases, and literature-mined evidence to construct a
+    probabilistic network for hypothesis generation.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports: 
+    clusterProfiler,
+    digest,
+    dplyr,
+    jsonlite,
+    methods,
+    pillar,
+    RCurl,
+    tibble,
+    tidyr,
+    utils
+Suggests: 
+    org.Hs.eg.db
+Depends: 
+    R (>= 3.5)
