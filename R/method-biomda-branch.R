@@ -17,7 +17,7 @@
 #' pre-eclampsia.
 #' @examples
 #' library(biomda)
-#' biomda <- BioMDA("Urobilin", disease == "Crohn's disease")
+#' biomda <- BioMDA("Urobilin", disease = "Crohn's disease")
 #' ssimm_biomda <- biomda_branch(biomda, branch = "ssimm", score = 700)
 #' @return BioMDA object containing result of branch.
 #' @export
