@@ -18,18 +18,28 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
+Depends: 
+    R (>= 4.3)
 Imports: 
     clusterProfiler,
     digest,
     dplyr,
+    dynamicTreeCut,
+    flashClust,
     jsonlite,
     methods,
     pillar,
+    pROC,
+    Rcpp,
     RCurl,
+    ropls,
     tibble,
     tidyr,
-    utils
+    utils,
+    WGCNA
 Suggests: 
-    org.Hs.eg.db
-Depends: 
-    R (>= 4.3)
+    org.Hs.eg.db,
+    RcppArmadillo
+LinkingTo: 
+    Rcpp,
+    RcppArmadillo

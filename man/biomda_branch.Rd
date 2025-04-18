@@ -37,7 +37,7 @@ The branch of BioMDA pipeline:
 }
 \examples{
 library(biomda)
-biomda <- BioMDA("Urobilin", disease == "Crohn's disease")
+biomda <- BioMDA("Urobilin", disease = "Crohn's disease")
 ssimm_biomda <- biomda_branch(biomda, branch = "ssimm", score = 700)
 }
 \references{

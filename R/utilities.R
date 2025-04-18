@@ -48,3 +48,11 @@ get_coab_metabolites <- function(obj) {
   }
   return(coabcid)
 }
+
+## Suppress the print and cat
+#' @keywords internal
+suppressPrintAndCat <- function(x) {
+  sink(tempfile(), type = "out")
+  on.exit(sink())
+  invisible(force(x))
+}
