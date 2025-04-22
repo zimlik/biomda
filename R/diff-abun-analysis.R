@@ -36,8 +36,10 @@
 #' * \code{pval, padj} P value and p value adjusted of t.test (or wilcox.test)
 #' * \code{fc, log2fc, fc_direct} Fold change (FC), log2(FC) and direction of
 #' FC (e.g., case/control).
-#' * \code{significant} 1 for significantly differential metabolites, or 0 for
-#' not significant.
+#' * \code{significant} Yes for significantly differential metabolites, or no
+#' for not significant.
+#' * \code{sigGroup} The experimental group exhibits a significant increase in
+#' \code{resp} using \code{diff_metabolites}.
 #' @note Fold change was calculated using the \code{original abundance} table,
 #' while p-values and AUC values were computed based on log10-transformed (when
 #' \code{log10L = TRUE}, or FALSE for untransformed) abundance data. VIP scores
@@ -126,13 +128,14 @@ diff_metabolites <- function(abundance,
   res <- tibble(metabolite = metabolite, vip = vip, pvalue = pval,
                 padj = adj_pval, auc = auc_value, fc = fc, log2fc = log2fc,
                 fc_direct = fc_direct)
-  auc_cutoff2 <- 1 - auc_cutoff
   res <- res |>
     mutate(significant = as.integer(vip > vip_cutoff &
                                     padj < padj_cutoff &
                                     abs(log2fc) > log2fc_cutoff &
-                                    (auc > auc_cutoff | auc < auc_cutoff2))) |>
-    mutate(significant = if_else(is.na(significant), 0, significant))
-
+                                    auc > auc_cutoff),
+           significant = if_else(is.na(significant), 0, significant),
+           significant = if_else(significant == 1, "Yes", "No"),
+           sigGroup = if_else(log2fc > 0, compared[1], compared[2]),
+           sigGroup = if_else(significant == "Yes", sigGroup, NA))
   return(res)
-}
+} 

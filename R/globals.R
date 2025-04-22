@@ -6,5 +6,5 @@ globalVariables(
     "entrezid", "experiment", "fusion", "id", "name", "neighborhood", "ngene",
     "node1", "node2", "prediction", "score", "select", "ssimcid", "stringid",
     "textmining", "toupper_protein", "type", "ENTREZID", "evidence", "module",
-    "auc", "padj", "significant", "metabolite", "cid", "compound")
+    "auc", "padj", "significant", "metabolite", "cid", "compound", "sigGroup")
 )

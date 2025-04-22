@@ -63,8 +63,10 @@ A data.frame with fields:
 \item \code{pval, padj} P value and p value adjusted of t.test (or wilcox.test)
 \item \code{fc, log2fc, fc_direct} Fold change (FC), log2(FC) and direction of
 FC (e.g., case/control).
-\item \code{significant} 1 for significantly differential metabolites, or 0 for
-not significant.
+\item \code{significant} Yes for significantly differential metabolites, or no
+for not significant.
+\item \code{sigGroup} The experimental group exhibits a significant increase in
+\code{resp} using \code{diff_metabolites}.
 }
 }
 \description{
