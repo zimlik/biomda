@@ -4,7 +4,7 @@
 get_biomda_terms <- function() {
   biomda_env <- get_biomda_env()
   if (!exists("biomda_terms", envir = biomda_env, inherits = FALSE)) {
-    url <- "http://39.108.209.221/biomda-enrichment-terms.rds"
+    url <- "https://www.medam.top/biomda-enrichment-terms.rds"
     terms_data <- tempfile(fileext = ".rds")
     on.exit({
       if (file.exists(terms_data)) {

@@ -23,7 +23,7 @@
 #' @export
 biomda_db_api <- function(resource,
                           .params = list()) {
-  host <- getOption("biomda_db_host", "http://39.108.209.221")
+  host <- getOption("biomda_db_host", "https://www.medam.top")
   resp <- tryCatch(
     postForm(uri = paste0(host, resource), .params = .params),
     error = function(e) NULL
