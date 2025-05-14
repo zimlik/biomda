@@ -4,10 +4,13 @@
 \alias{ssimcid_search}
 \title{Structurally similar compounds}
 \usage{
-ssimcid_search(cid)
+ssimcid_search(cid, include_query = TRUE)
 }
 \arguments{
 \item{cid}{PubChem cid, e.g., CID2244.}
+
+\item{include_query}{Whether the structurally similar compounds contains the
+query cid.}
 }
 \value{
 A tibble containing the queried cid and ssimcid (compounds shared
