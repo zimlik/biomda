@@ -20,7 +20,7 @@ comprehensive information on target proteins, including STRING database IDs
 (entrezid), and detailed protein descriptions.
 }
 \description{
-Search known metabilite-protein interactions (experimentally
+Search known metabolite-protein interactions (experimentally
 determined or from curated databases) in STITCH.
 }
 \details{

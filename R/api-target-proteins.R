@@ -1,5 +1,5 @@
 #' @title Target proteins of metabolite
-#' @description Search known metabilite-protein interactions (experimentally
+#' @description Search known metabolite-protein interactions (experimentally
 #' determined or from curated databases) in STITCH.
 #' @param cid PubChem cid, e.g. 'CID2244' ('aspirin').
 #' @param score Threshold of significance to include a interaction, a number
