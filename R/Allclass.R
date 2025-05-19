@@ -145,35 +145,11 @@ BioMDA <- function(metabolite,
     biomda@diseaseInfo <- diseaseInfo
   } else {
     biomda@disease <- NA_character_
-    biomda@diseaseInfo <- init_diseaseInfo()
+    biomda@diseaseInfo <- list(doid = NA_character_,
+                               superclass = NA_character_,
+                               disease_genes = tibble(ENTREZID = character(0),
+                                                      SYMBOL = character(0))
+    )
   }
   return(biomda)
-}
-
-#' @keywords internal
-init_metaboliteInfo <- function() {
-  char0 <- character(0)
-  int0 <- integer(0)
-  target_proteins <- tibble(cid = char0, stringid = char0, score = int0,
-                            name = char0, entrezid = char0, description = char0)
-  ssim_metabolites <- tibble(cid = char0, ssimcid = char0, evidence = char0,
-                             name = char0, description = char0)
-  coab_metabolites <- tibble(coabcid = char0, module = char0, name = char0,
-                             description = char0)
-  res <- list(
-    target_proteins = target_proteins,
-    ssim_metabolites = ssim_metabolites,
-    coab_metabolites = coab_metabolites
-  )
-  return(res)
-}
-
-#' @keywords internal
-init_diseaseInfo <- function() {
-  res <- list(
-    doid = NA_character_,
-    superclass = NA_character_,
-    disease_genes = tibble(ENTREZID = character(0), SYMBOL = character(0))
-  )
-  return(res)
 }

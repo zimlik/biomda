@@ -138,4 +138,4 @@ diff_metabolites <- function(abundance,
            sigGroup = if_else(log2fc > 0, compared[1], compared[2]),
            sigGroup = if_else(significant == "Yes", sigGroup, NA))
   return(res)
-} 
+}
